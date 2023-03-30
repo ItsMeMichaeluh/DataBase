@@ -12,4 +12,19 @@ catch(PDOException $e) {
     echo $e->getMessage();
 }
 
+
+function checkInlog(){
+    session_start();
+    if($_SESSION["inlog"] != 'true'){
+        header('Location: login.php');   
+    }   
+}
+
+
+function showUserInlog(){
+    echo "U bent ingelogd als: " . $_SESSION['voornaam'] . " " . $_SESSION['achternaam'];
+    echo "<br /> <a href='uitloggen.php'>Uitloggen</a>";
+}
+
+
 ?>
